@@ -10,7 +10,7 @@ namespace MovieSystemNewest1
         {
             var builder = WebApplication.CreateBuilder(args);
 
-            // Add services to the container.
+            // Adding services to the container
             builder.Services.AddAuthorization();
 
             builder.Services.AddEndpointsApiExplorer();
@@ -25,7 +25,7 @@ namespace MovieSystemNewest1
 
             var app = builder.Build();
 
-            // Configure the HTTP request pipeline.
+            // Configuring the HTTP request pipeline
             if (app.Environment.IsDevelopment())
             {
                 app.UseSwagger();
@@ -37,13 +37,27 @@ namespace MovieSystemNewest1
             app.UseAuthorization();
 
 
-            //Geting all users
+            //Getting all users
             app.MapGet("/Get/User", async (DataContext context) =>
             {
                 var user = context.User;
                 return await user.ToListAsync();
             })
            .WithName("GetUser");
+
+            //Getting genre for specific user
+            app.MapGet("/Get/UserGenre/", async (int Id, DataContext context) =>
+            {
+                var userGenre = from userGenreItem in context.UserGenre
+                                select new
+                                {
+                                    userGenreItem.User.Id,
+                                    userGenreItem.Genre.Title
+                                };
+
+                return await userGenre.Where(userGenreItem => userGenreItem.Id == Id).ToListAsync();
+            })
+            .WithName("/Get/GenrebyUserId");
 
 
             app.Run();
