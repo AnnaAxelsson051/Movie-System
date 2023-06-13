@@ -59,8 +59,19 @@ namespace MovieSystemNewest1
             })
             .WithName("/Get/GenrebyUserId");
 
+            //Geting movies for specific user
+            app.MapGet("/Get/UserMovie/", async (int Id, DataContext context) =>
+            {
+                var userMovie = from userGenreItem in context.UserGenre
+                                select new
+                                {
+                                    userGenreItem.User.Id,
+                                    userGenreItem.Movie
+                                };
 
-            app.Run();
+                return await userMovie.Where(userGenreItem => userGenreItem.Id == Id).ToListAsync();
+            })
+            .WithName("GetMoviebyUserId");
         }
     }
 }
