@@ -99,13 +99,27 @@ namespace MovieSystemNewest1
 
             app.MapPost("/Post/AddRating/", async (DataContext context, int userId, int rating, string movie) =>
             {
-                var updateRows = await context.UserGenre.Where(UserGenre => UserGenre.UserId == userId).Where(x => x.Movie == movie)
+                var updateRows = await context.UserGenre.Where(UserGenre => UserGenre.UserId == userId).Where(UserGenre => UserGenre.Movie == movie)
                 .ExecuteUpdateAsync(updates =>
                 updates.SetProperty(UserGenre => UserGenre.Rating, rating));
 
                 return updateRows == 0 ? Results.NotFound() : Results.NoContent();
             })
                .WithName("PostRatingByUserIdAndMovieId");
+
+            //Add movie to a specific user and genre
+            app.MapPost("/Post/AddMovie/", async (DataContext context, int userId, int genreId, string movie) =>
+            {
+                var newUserGenre = new Model.UserGenre
+                {
+                    UserId = userId,
+                    Movie = movie,
+                    GenreId = genreId
+                };
+                await context.UserGenre.AddAsync(newUserGenre);
+                await context.SaveChangesAsync();
+            })
+                .WithName("PostMovieByUserIdAndMovieId");
 
             app.Run();
         }
