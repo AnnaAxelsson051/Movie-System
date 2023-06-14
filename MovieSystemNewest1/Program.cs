@@ -1,6 +1,11 @@
 ﻿
+using System;
+using System.Reflection.Metadata;
+using System.Xml.Linq;
 using Microsoft.EntityFrameworkCore;
 using MovieSystemNewest1.Data;
+using MovieSystemNewest1.Model;
+using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
 
 namespace MovieSystemNewest1
 {
@@ -59,7 +64,7 @@ namespace MovieSystemNewest1
             })
             .WithName("/Get/GenrebyUserId");
 
-            //Geting movies for specific user
+            //Getting movies for specific user
             app.MapGet("/Get/UserMovie/", async (int Id, DataContext context) =>
             {
                 var userMovie = from userGenreItem in context.UserGenre
@@ -72,6 +77,25 @@ namespace MovieSystemNewest1
                 return await userMovie.Where(userGenreItem => userGenreItem.Id == Id).ToListAsync();
             })
             .WithName("GetMoviebyUserId");
+
+
+            //Getting rating for specific user and movie
+
+            app.MapGet("/Get/MoviesRating/", async (int Id, DataContext context) =>
+            {
+                var movieRating = from userGenreItem in context.UserGenre
+                                  select new
+                                  {
+                                      userGenreItem.User.Id,
+                                      userGenreItem.Movie,
+                                      userGenreItem.Rating
+                                  };
+
+                return await movieRating.Where(userGenreItem => userGenreItem.Id == Id).ToListAsync();
+            })
+            .WithName("GetMovieRatingbyUserId");
+
+            app.Run();
         }
     }
 }
