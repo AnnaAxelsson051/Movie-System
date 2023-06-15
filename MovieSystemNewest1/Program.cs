@@ -107,7 +107,7 @@ namespace MovieSystemNewest1
             })
                .WithName("PostRatingByUserIdAndMovieId");
 
-            //Add movie to a specific user and genre
+            //Adding movie to a specific user and genre
             app.MapPost("/Post/AddMovie/", async (DataContext context, int userId, int genreId, string movie) =>
             {
                 var newUserGenre = new Model.UserGenre
@@ -120,6 +120,38 @@ namespace MovieSystemNewest1
                 await context.SaveChangesAsync();
             })
                 .WithName("PostMovieByUserIdAndMovieId");
+
+            //Adding genre to user
+            app.MapPost("/Post/AddGenre/", async (DataContext context, int userId, int genreId) =>
+            {
+                var newUserGenre = new Model.UserGenre
+                {
+                    UserId = userId,
+                    GenreId = genreId
+                };
+                await context.UserGenre.AddAsync(newUserGenre);
+                await context.SaveChangesAsync();
+            })
+            .WithName("PostGenreAndUserbyUserIdAndGenreId");
+
+            //Retrieving movie recommendations from an external API based on a specified genre
+            //and returns the content in JSON format
+            app.MapGet("/Get/Recommendations/", async (DataContext context, string genreTitle) =>
+            {
+                var genre = await context.Genre.FirstOrDefaultAsync(genre => genre.Title == genreTitle);
+
+                var apiKey = "5f783946ae2e4bcb75092962e6100018";
+                var url = $"https://api.themoviedb.org/3/discover/movie?api_key={apiKey}&sort_by=popularity.desc&include_adult=true&include_video=false&with_genres={genre.Id}&with_watch_monetization_types=free";
+
+                var client = new HttpClient();
+
+                var response = await client.GetAsync(url);
+                response.EnsureSuccessStatusCode();
+
+                var content = await response.Content.ReadAsStringAsync();
+
+                return Results.Content(content, contentType: "application/json");
+            });
 
             app.Run();
         }
