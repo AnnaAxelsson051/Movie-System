@@ -34,7 +34,7 @@ This is a backend application in C# built with ASP.NET CORE Web API, Entity Fram
 ## Instructions
 
 Clone the project and open the solution in your IDE / Visual Studio. Add an appsettings.json file with a suitable for your system [connection string](https://www.connectionstrings.com/).
-´´´
+```
     {
   "ConnectionStrings": {
     "DefaultConnection": "<Your connection string>"
@@ -46,21 +46,21 @@ Clone the project and open the solution in your IDE / Visual Studio. Add an apps
     }
   }
 }
-´´´
+```
 
 Install dotnet tools:
-´´´
+```
 dotnet tool install --global dotnet-ef
-´´´
+```
 
 Navigate to the project folder and create migrations:
-´´´
+```
 dotnet ef migrations add InitialCreate
-´´´
+```
 
-Create database and schema from the migration
-´´´
+Create database and schema from the migration:
+```
 dotnet ef database update
-´´´
+```
 
 Run the program inside Visual Studio.
