@@ -33,7 +33,7 @@ This is a backend application in C# built with ASP.NET CORE Web API, Entity Fram
 
 ## Instructions
 
-Clone the project and open the solution in your IDE / Visual Studio. Add an appsettings.json file with a suitable for your system [connection string](https://www.connectionstrings.com/).
+Open the project in your IDE / Visual Studio. Add an appsettings.json file with a [connection string](https://www.connectionstrings.com/) suitable for your system.
 ```
     {
   "ConnectionStrings": {

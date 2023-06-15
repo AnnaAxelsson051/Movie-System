@@ -79,7 +79,7 @@ namespace MovieSystemNewest1
             .WithName("GetMoviebyUserId");
 
 
-            //Getting rating for specific user and movie
+            //Getting ratings for specific user and movies
 
             app.MapGet("/Get/MoviesRating/", async (int Id, DataContext context) =>
             {
