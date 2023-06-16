@@ -14,6 +14,7 @@ This is a backend application in C# built with ASP.NET CORE Web API, Entity Fram
 - Swagger
 - Code first
 - External TheMovieDBs API
+- Docker
 
 ---
 
