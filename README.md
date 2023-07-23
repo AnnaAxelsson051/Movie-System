@@ -19,6 +19,20 @@ Users can add new movies with specific genres to the database, add likes to genr
 
 ---
 
+## API Requests and return data
+|**Type**|**API-request**|**Input**|**Return data**|
+|-|-|-|-|
+|GET|/Get/User|n/a|Returns information about all the users in Db - Id, Name and Email|
+|GET|/Get/UserGenre|?Id=4|Returns all genres a specified user has liked|
+|GET|/Get/UserMovie|?Id=4|Returns all the movies a user has added to Db|
+|GET|/Get/MoviesRating|?Id=4|Returns all movies and their corresponding ratings given by a specific user|
+|POST|/Post/AddMovie|?userId=4&genreId=28&movie=Terminator|Enables the addition of new movies each with specified genre to Db|
+|POST|/Post/AddGenre|?userId=4&genreId=28|Enables a user to like new genres|
+|POST|/Post/AddRating|?userId=4&rating=5&movie=Terminator|Enables a user to add a rating to a movie|
+|GET|/Get/Recommendations|?genreTitle=Action|Retrieves new movie recommendations from external API based on specific genre|
+
+---
+
 ## Instructions
 
 Open the project in your IDE / Visual Studio. Add an appsettings.json file with a [connection string](https://www.connectionstrings.com/) suitable for your system.
