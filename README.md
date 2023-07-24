@@ -41,9 +41,9 @@ The application consists of three model classes: User, Genre and UserGenre that 
 
 ## Personal reflection
 
-When it comes to the architecture of this application minimal API was used since its generally a smoother option for a not very large scale application. If I was building a larger application I would go with an MVC architecture since it provides much more structure as the code gets extensive and increasingly complex. Regarding database design Code first was used over Model and Database first due to it being more intuitive and allowing for application development without to much focus on database tables. In the code I favour using declarative names for variables in the api calls, this may contrast some developers preferences and I can also see how shorter more anonymous names can have its advantages as well. 
+When it comes to the architecture of this application minimal API was used since its generally a smoother option for a not very large scale application. If I was building a larger application I would go with an MVC architecture since it provides much more structure as the code gets extensive and increasingly complex. Regarding database design Code first was used over Model and Database first due to it being more intuitive and allowing for application development without to much focus on database tables. In the code I favour using declarative names for variables in the api calls, this may contrast some developers preferences and I can also see how shorter more anonymous names can have its advantages. 
 
-I would enjoy expanding this application further, adding viewable movie trailers, user chats or comment ability on movies. This would require said MVC architecture, log in functionality and security implementations amongst other things. 
+I would enjoy expanding this application further adding viewable movie trailers, user chats and or the ability for users to post comments on movies. This would require said MVC architecture, log in functionality and security implementations amongst other things. 
 
 ---
 
