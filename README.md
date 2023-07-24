@@ -19,6 +19,12 @@ Users can add new movies with specific genres to the database, add likes to genr
 
 ---
 
+## Code structure
+
+The application consists of three model classes: User, Genre and UserGenre that handles model data. A Program class where API-calls are made and a Data Context class for interacting with the database.   
+
+---
+
 ## API Requests and return data
 |**Type**|**API-request**|**Input**|**Return data**|
 |-|-|-|-|
@@ -30,6 +36,14 @@ Users can add new movies with specific genres to the database, add likes to genr
 |POST|/Post/AddGenre|?userId=4&genreId=28|Enables a user to like new genres|
 |POST|/Post/AddRating|?userId=4&rating=5&movie=Terminator|Enables a user to add a rating to a movie|
 |GET|/Get/Recommendations|?genreTitle=Action|Retrieves new movie recommendations from external API based on specific genre|
+
+---
+
+## Personal reflection
+
+When it comes to the architecture of this application minimal API was used since its generally a smoother option for a not very large scale application. If I was building a larger application I would go with an MVC architecture since it provides much more structure as the code gets extensive and increasingly complex. Regarding database design Code first was used over Model and Database first due to it being more intuitive and allowing for application development without to much focus on database tables. In the code I favour using declarative names for variables in the api calls, this may contrast some developers preferences and I can also see how shorter more anonymous names can have its advantages as well. 
+
+I would enjoy expanding this application further, adding viewable movie trailers, user chats or comment ability on movies. This would require said MVC architecture, log in functionality and security implementations amongst other things. 
 
 ---
 
