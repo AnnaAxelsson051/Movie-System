@@ -1,11 +1,13 @@
 # MOVIE SYSTEM SERVER
 
+## Description
+
 This is the back end part of a movie system application built in C#, ASP.NET CORE Web API, Entity Framework and Azure Datastudio that interacts with a local database as well as with an external API - The Movie Database (TMDB). The application acts as a server to a [Movie System Client](https://github.com/AnnaAxelsson051/Movie-System-Client).
 Users can add new movies with specific genres to the database, add likes to genres and ratings to movies. Its possible to retrieve personal information about the users in the database, to retrieve all the genres a specific user has liked as well as all the movies a user has added and ratings for these movies. Its also possible for users to get new movie suggestions based on a specific genre from an external API.
 
 ---
 
-## Technologies used
+## Technologies used:
 
 - C#
 - ASP.NET CORE Web API
@@ -22,8 +24,6 @@ Users can add new movies with specific genres to the database, add likes to genr
 ## Code structure
 
 The application consists of three model classes: User, Genre and UserGenre that handles model data. A Program class where API-calls are made and a Data Context class for interacting with the database.   
-
----
 
 ## API Requests and return data
 |**Type**|**API-request**|**Input**|**Return data**|
