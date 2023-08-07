@@ -1,23 +1,29 @@
-# MOVIE SYSTEM SERVER
+# Movie System Server
 
-## Description
+## User Interface 
 
-This is the back end part of a movie system application built in C#, ASP.NET CORE Web API, Entity Framework and Azure Datastudio that interacts with a local database as well as with an external API - The Movie Database (TMDB). The application acts as a server to a [Movie System Client](https://github.com/AnnaAxelsson051/Movie-System-Client).
-Users can add new movies with specific genres to the database, add likes to genres and ratings to movies. Its possible to retrieve personal information about the users in the database, to retrieve all the genres a specific user has liked as well as all the movies a user has added and ratings for these movies. Its also possible for users to get new movie suggestions based on a specific genre from an external API.
+![Example Image](user-interface.png)
 
 ---
 
-## Technologies used:
+## Description
 
-- C#
+This is the back-end component of a full stack movie system application developed in C#, ASP.NET Core Web API, Entity Framework, and Azure Data Studio. The application serves as a server for a [Movie System Client](https://github.com/AnnaAxelsson051/Movie-System-Client) built with React, interacting with both a local database and an external API (The Movie Database - TMDB). Users can add new movies with genres, like genres, and rate movies. The API supports retrieving user-specific information, liked genres, added movies, and movie ratings. Additionally, users can fetch new movie suggestions based on specific genres from an external API.
+
+---
+
+## Technologies used
+
 - ASP.NET CORE Web API
+- C#
 - Entity Framework
 - Azure Datastudio
+- Docker
+- SQL
 - Postman
 - Swagger
 - Code first
-- External TheMovieDBs API
-- Docker
+- External TheMovieDB API
 
 ---
 
@@ -41,9 +47,11 @@ The application consists of three model classes: User, Genre and UserGenre that 
 
 ## Personal reflection
 
-When it comes to the architecture of this application minimal API was used since its generally a smoother option for a not very large scale application. If I was building a larger application I would go with an MVC architecture since it provides much more structure as the code gets extensive and increasingly complex. Regarding database design Code first was used over Model and Database first due to it being more intuitive and allowing for application development without to much focus on database tables. In the code I favour using declarative names for variables in the api calls, this may contrast some developers preferences and I can also see how shorter more anonymous names can have its advantages. 
+In terms of the application's architecture, minimal API was chosen for its smooth performance in smaller-scale projects. For larger applications, MVC architecture would be favored due to its structured approach, especially for managing extensive and intricate code. The decision for database design leaned towards Code-First over Model-First or Database-First, as it offers more intuitive development and reduces the need to overly focus on database tables.
 
-I would enjoy expanding this application further adding viewable movie trailers, user chats and or the ability for users to post comments on movies. This would require said MVC architecture, log in functionality and security implementations amongst other things. 
+Throughout the codebase, I prioritize the use of declarative variable names, though I acknowledge that some developers may have different preferences, and shorter, more anonymous names could offer certain advantages.
+
+Looking ahead, I'm eager to extend the application's features by incorporating viewable movie trailers, user chats, and the capability for users to post comments on movies. These enhancements would entail adopting MVC architecture, implementing user authentication, security measures, and other essential components. 
 
 ---
 
