@@ -22,7 +22,6 @@ This is the back-end component of a full stack movie system application develope
 - SQL
 - Postman
 - Swagger
-- Code first
 - External TheMovieDB API
 
 ---
